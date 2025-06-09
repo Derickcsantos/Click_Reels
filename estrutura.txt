@@ -1,0 +1,15 @@
+click-reels/
+├── index.html
+├── linktree.html
+├── css/
+│   └── style.css
+├── js/
+│   ├── script.js
+│   └── vlibras-plugin.js
+├── images/
+│   ├── logo.png
+│   ├── banner.jpg
+│   └── ...
+└── assets/
+    ├── icons/
+    └── fonts/

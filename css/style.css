@@ -1,0 +1,96 @@
+/* Estilos Base */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Nav Links */
+.nav-link {
+    @apply text-dark dark:text-primary-light hover:text-secondary dark:hover:text-secondary transition-colors duration-300;
+}
+
+.mobile-nav-link {
+    @apply text-2xl text-primary hover:text-secondary transition-colors duration-300;
+}
+
+/* WhatsApp Button */
+.whatsapp-button {
+    @apply fixed bottom-6 right-6 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg z-50 hover:bg-green-600 transition-transform duration-300 transform hover:scale-110;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Scroll Up Button */
+.scroll-up-button {
+    @apply fixed bottom-24 right-6 bg-secondary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg z-50 hover:bg-secondary-dark transition-transform duration-300 transform hover:scale-110;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Animações */
+.animate-fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* FAQ Animations */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.faq-answer.open {
+    max-height: 500px;
+}
+
+.faq-question .fa-chevron-down {
+    transition: transform 0.3s ease;
+}
+
+.faq-question.active .fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-primary-light dark:bg-dark;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-secondary rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-secondary-dark;
+}
+
+/* Tailwind Extensions */
+.bg-primary-light {
+    background-color: #edcea6;
+}
+
+.bg-secondary-dark {
+    background-color: #e07d00;
+}
+
+.bg-dark-light {
+    background-color: #2a2a2a;
+}
+
+.bg-dark-lightest {
+    background-color: #3a3a3a;
+}
+
+.text-primary-light {
+    color: #edcea6;
+}

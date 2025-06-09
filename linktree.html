@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Links Click Reels - Conecte-se conosco</title>
+    <meta name="description" content="Conecte-se com a Click Reels através de nossos diversos canais. WhatsApp, Instagram, Site e mais.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#edcea6',
+                        secondary: '#f7900a',
+                        dark: '#1a1a1a',
+                        light: '#f5f5f5',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-primary-light dark:bg-dark min-h-screen flex flex-col items-center justify-center p-4 transition-colors duration-300">
+    <!-- VLibras -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/5511999999999" class="whatsapp-button" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <!-- Toggle Theme -->
+    <button id="themeToggle" class="absolute top-4 right-4 p-2 rounded-full bg-primary dark:bg-dark-light focus:outline-none">
+        <i class="fas fa-moon dark:hidden"></i>
+        <i class="fas fa-sun hidden dark:block"></i>
+    </button>
+    
+    <!-- Linktree Content -->
+    <div class="w-full max-w-md mx-auto text-center animate-fade-in">
+        <!-- Profile -->
+        <div class="mb-8">
+            <img src="images/logo.png" alt="Click Reels Logo" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-secondary">
+            <h1 class="text-2xl font-bold text-dark dark:text-primary mb-2">Click Reels</h1>
+            <p class="text-dark dark:text-primary-light">Marketing Digital • Conteúdo Viral • Crescimento Online</p>
+        </div>
+        
+        <!-- Links -->
+        <div class="space-y-4 mb-8">
+            <!-- WhatsApp -->
+            <a href="https://wa.me/5511999999999" target="_blank" class="block bg-white dark:bg-dark-light hover:bg-primary dark:hover:bg-dark-lightest text-dark dark:text-primary-light font-medium py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 border-l-4 border-secondary flex items-center justify-center">
+                <i class="fab fa-whatsapp text-2xl mr-3 text-secondary"></i>
+                WhatsApp (Fale Conosco)
+            </a>
+            
+            <!-- Instagram -->
+            <a href="https://instagram.com/clickreels" target="_blank" class="block bg-white dark:bg-dark-light hover:bg-primary dark:hover:bg-dark-lightest text-dark dark:text-primary-light font-medium py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 border-l-4 border-secondary flex items-center justify-center">
+                <i class="fab fa-instagram text-2xl mr-3 text-secondary"></i>
+                Instagram (@clickreels)
+            </a>
+            
+            <!-- Site -->
+            <a href="https://www.clickreels.com.br" class="block bg-white dark:bg-dark-light hover:bg-primary dark:hover:bg-dark-lightest text-dark dark:text-primary-light font-medium py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 border-l-4 border-secondary flex items-center justify-center">
+                <i class="fas fa-globe text-2xl mr-3 text-secondary"></i>
+                Nosso Site Oficial
+            </a>
+            
+            <!-- Planos -->
+            <a href="https://www.clickreels.com.br#planos" class="block bg-white dark:bg-dark-light hover:bg-primary dark:hover:bg-dark-lightest text-dark dark:text-primary-light font-medium py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 border-l-4 border-secondary flex items-center justify-center">
+                <i class="fas fa-tags text-2xl mr-3 text-secondary"></i>
+                Conheça Nossos Planos
+            </a>
+            
+            <!-- Portfólio -->
+            <a href="https://portfolio.clickreels.com.br" target="_blank" class="block bg-white dark:bg-dark-light hover:bg-primary dark:hover:bg-dark-lightest text-dark dark:text-primary-light font-medium py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 border-l-4 border-secondary flex items-center justify-center">
+                <i class="fas fa-images text-2xl mr-3 text-secondary"></i>
+                Nosso Portfólio
+            </a>
+        </div>
+        
+        <!-- Badges -->
+        <div class="flex justify-center space-x-4 mb-8">
+            <a href="https://wa.me/5511999999999" target="_blank" class="bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-md transition">
+                <i class="fab fa-whatsapp text-xl"></i>
+            </a>
+            <a href="https://instagram.com/clickreels" target="_blank" class="bg-pink-500 hover:bg-pink-600 text-white p-3 rounded-full shadow-md transition">
+                <i class="fab fa-instagram text-xl"></i>
+            </a>
+            <a href="https://www.clickreels.com.br" class="bg-secondary hover:bg-secondary-dark text-white p-3 rounded-full shadow-md transition">
+                <i class="fas fa-globe text-xl"></i>
+            </a>
+        </div>
+        
+        <!-- Footer -->
+        <div class="text-sm text-dark dark:text-primary-light">
+            <p>© 2023 Click Reels. Todos os direitos reservados.</p>
+            <p class="mt-2">contato@clickreels.com.br</p>
+        </div>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+</body>
+</html>
