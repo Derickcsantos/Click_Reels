@@ -10,10 +10,10 @@
     <meta property="og:title" content="Click Reels - Marketing Digital e Crescimento Online">
     <meta property="og:description" content="Especialistas em marketing digital, engajamento em redes sociais e criação de conteúdo viral.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.clickreels.com.br">
+    <meta property="og:url" content="https://https://clickreels.vercel.app">
     
     <!-- Favicon -->
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" style="border-radius: 50%;" href="img/logo.jpg" type="image/jpg">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -46,11 +46,11 @@
             <div class="vw-plugin-top-wrapper"></div>
         </div>
     </div>
-    
-    <!-- Scroll Up Button -->
-    <button id="scrollUp" class="scroll-up-button hidden">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+
+    <a href="https://wa.me/5511949648015" target="_blank" class="whatsapp-button">
+        <!-- <img src="/img/whatsapp.7f3687b9-847d-4f86-bb5c-c73259e2b38e" alt="WhatsApp"> -->
+        <i class="fab fa-whatsapp"></i>
+    </a>
     
     <!-- Header -->
     <header class="fixed w-full z-50 bg-primary dark:bg-dark shadow-md">
@@ -70,16 +70,11 @@
                 <a href="#contato" class="nav-link">Contato</a>
                 <a href="linktree.html" class="nav-link">Links</a>
                 
-                <!-- Toggle Theme -->
-                <button id="themeToggle" class="p-2 rounded-full focus:outline-none">
-                    <i class="fas fa-moon dark:hidden"></i>
-                    <i class="fas fa-sun hidden dark:block"></i>
-                </button>
             </div>
             
             <!-- Menu Mobile Button -->
             <button id="mobileMenuButton" class="md:hidden p-2 rounded-full focus:outline-none">
-                <i class="fas fa-bars"></i>
+                <i class="fas fa-bars" style="color: #edcea6;"></i>
             </button>
         </nav>
         
@@ -98,11 +93,6 @@
                 <a href="#contato" class="mobile-nav-link">Contato</a>
                 <a href="linktree.html" class="mobile-nav-link">Links</a>
                 
-                <!-- Toggle Theme Mobile -->
-                <button id="themeToggleMobile" class="p-4 rounded-full text-primary">
-                    <i class="fas fa-moon dark:hidden"></i>
-                    <i class="fas fa-sun hidden dark:block"></i>
-                </button>
             </div>
         </div>
     </header>
@@ -129,7 +119,13 @@
                     </div>
                 </div>
                 <div class="md:w-1/2">
-                    <img src="images/banner.jpg" alt="Marketing Digital" class="rounded-lg shadow-xl w-full max-w-lg mx-auto">
+                   <div class="relative flex flex-col rounded-xl bg-dark bg-clip-border text-gray-700 shadow-md">
+                    <div class="relative mx-4 mt-4 flex flex-col gap-4 overflow-hidden rounded-none bg-transparent bg-clip-border text-gray-700 shadow-none md:flex-row md:items-center">   
+                    </div>
+                    <div class="pt-6 px-2 pb-0">
+                        <div id="bar-chart"></div>
+                    </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -137,8 +133,8 @@
         <!-- Serviços Section -->
         <section id="servicos" class="py-16 bg-primary dark:bg-dark-light px-4 animate-fade-in">
             <div class="container mx-auto">
-                <h2 class="text-3xl font-bold text-center text-dark dark:text-primary mb-12">
-                    Nossos <span class="text-secondary">Serviços</span>
+                <h2 class="text-3xl font-bold text-center text-dark dark:text-primary mb-12" id="servicosH2">
+                    <span class="text-secondary">Serviços</span>
                 </h2>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -235,7 +231,7 @@
                             <ul class="space-y-3 text-dark dark:text-primary-light">
                                 <li class="flex items-center">
                                     <i class="fas fa-check text-secondary mr-2"></i>
-                                    Gestão de 1 rede social
+                                   <p>Gestão de 1 rede social</p>
                                 </li>
                                 <li class="flex items-center">
                                     <i class="fas fa-check text-secondary mr-2"></i>
@@ -347,7 +343,7 @@
             <div class="container mx-auto">
                 <div class="flex flex-col md:flex-row items-center">
                     <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
-                        <img src="images/team.jpg" alt="Equipe Click Reels" class="rounded-lg shadow-xl w-full">
+                        <img src="img/equipeClick.jpg" alt="Equipe Click Reels" class="rounded-lg shadow-xl w-full">
                     </div>
                     <div class="md:w-1/2">
                         <h2 class="text-3xl font-bold text-dark dark:text-primary mb-6">
@@ -392,7 +388,7 @@
                     <!-- Depoimento 1 -->
                     <div class="bg-white dark:bg-dark rounded-lg shadow-lg p-6">
                         <div class="flex items-center mb-4">
-                            <img src="images/client1.jpg" alt="Cliente" class="w-12 h-12 rounded-full mr-4">
+                            <img src="img/pessoaAvaliando3.jpg" alt="Cliente" class="w-12 h-12 rounded-full mr-4">
                             <div>
                                 <h4 class="font-bold text-dark dark:text-primary">Ana Silva</h4>
                                 <p class="text-secondary text-sm">@aninha_silva</p>
@@ -413,7 +409,7 @@
                     <!-- Depoimento 2 -->
                     <div class="bg-white dark:bg-dark rounded-lg shadow-lg p-6">
                         <div class="flex items-center mb-4">
-                            <img src="images/client2.jpg" alt="Cliente" class="w-12 h-12 rounded-full mr-4">
+                            <img src="img/pessoaAvaliando1.jpg" alt="Cliente" class="w-12 h-12 rounded-full mr-4">
                             <div>
                                 <h4 class="font-bold text-dark dark:text-primary">Carlos Mendes</h4>
                                 <p class="text-secondary text-sm">@carlosmendes</p>
@@ -434,7 +430,7 @@
                     <!-- Depoimento 3 -->
                     <div class="bg-white dark:bg-dark rounded-lg shadow-lg p-6">
                         <div class="flex items-center mb-4">
-                            <img src="images/client3.jpg" alt="Cliente" class="w-12 h-12 rounded-full mr-4">
+                            <img src="img/pessoaAvaliando2.jpg" alt="Cliente" class="w-12 h-12 rounded-full mr-4">
                             <div>
                                 <h4 class="font-bold text-dark dark:text-primary">Juliana Costa</h4>
                                 <p class="text-secondary text-sm">@jucostamkt</p>
@@ -472,7 +468,7 @@
                                 </div>
                                 <div class="flex items-center">
                                     <i class="fas fa-phone-alt mr-4"></i>
-                                    <span>(11) 9999-9999</span>
+                                    <span href="https://wa.me/5511949648015">(11) 94964-8015</span>
                                 </div>
                                 <div class="flex items-center">
                                     <i class="fas fa-envelope mr-4"></i>
@@ -485,8 +481,8 @@
                                     <a href="#" class="text-white hover:text-primary text-2xl">
                                         <i class="fab fa-instagram"></i>
                                     </a>
-                                    <a href="#" class="text-white hover:text-primary text-2xl">
-                                        <i class="fab fa-facebook"></i>
+                                    <a href="https://wa.me/5511949648015" class="text-white hover:text-primary text-2xl">
+                                        <i class="fab fa-whatsapp"></i>
                                     </a>
                                     <a href="#" class="text-white hover:text-primary text-2xl">
                                         <i class="fab fa-tiktok"></i>
@@ -505,22 +501,22 @@
                             <form id="contactForm">
                                 <div class="mb-4">
                                     <label for="name" class="block text-dark dark:text-primary-light mb-2">Nome</label>
-                                    <input type="text" id="name" name="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary dark:bg-dark-light dark:border-gray-600">
+                                    <input type="text" id="name" name="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary dark:bg-dark-light dark:border-gray-600 " placeholder="Digite seu nome">
                                 </div>
                                 <div class="mb-4">
                                     <label for="email" class="block text-dark dark:text-primary-light mb-2">E-mail</label>
-                                    <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary dark:bg-dark-light dark:border-gray-600">
+                                    <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary dark:bg-dark-light dark:border-gray-600" placeholder="Digite seu e-mail">
                                 </div>
                                 <div class="mb-4">
                                     <label for="phone" class="block text-dark dark:text-primary-light mb-2">Telefone</label>
-                                    <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary dark:bg-dark-light dark:border-gray-600">
+                                    <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary dark:bg-dark-light dark:border-gray-600" placeholder="Digite seu telefone">
                                 </div>
                                 <div class="mb-4">
                                     <label for="message" class="block text-dark dark:text-primary-light mb-2">Mensagem</label>
-                                    <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary dark:bg-dark-light dark:border-gray-600"></textarea>
+                                    <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary dark:bg-dark-light dark:border-gray-600" placeholder="Escreva uma mensagem aqui"></textarea>
                                 </div>
                                 <button type="submit" class="w-full bg-secondary hover:bg-secondary-dark text-white font-bold py-3 px-6 rounded-lg transition">
-                                    Enviar Mensagem
+                                    Enviar Mensagem 
                                 </button>
                             </form>
                         </div>
@@ -623,8 +619,8 @@
                         <a href="#" class="text-primary hover:text-secondary text-xl">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="text-primary hover:text-secondary text-xl">
-                            <i class="fab fa-facebook"></i>
+                        <a href="https://wa.me/5511949648015" class="text-primary hover:text-secondary text-xl">
+                            <i class="fab fa-whatsapp"></i>
                         </a>
                         <a href="#" class="text-primary hover:text-secondary text-xl">
                             <i class="fab fa-tiktok"></i>
@@ -691,7 +687,7 @@
             
             <div class="border-t border-gray-700 mt-8 pt-8 text-center">
                 <p>
-                    &copy; 2023 Click Reels. Todos os direitos reservados.
+                    &copy; 2025 Click Reels. Todos os direitos reservados.
                 </p>
                 <div class="mt-4 flex justify-center space-x-6">
                     <a href="#" class="hover:text-secondary transition">Termos de Serviço</a>
@@ -708,5 +704,7 @@
     <script>
         new window.VLibras.Widget('https://vlibras.gov.br/app');
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="js/charts.js"></script>
 </body>
 </html>

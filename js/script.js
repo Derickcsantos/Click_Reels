@@ -33,30 +33,72 @@ function atualizarIconesTema(tema) {
     }
 }
 
-// Função para rolar suavemente para seções
+// Função para rolar suavemente para seções e destacar menu ativo
 function rolarParaSecao(event) {
-    event.preventDefault();
-    const targetId = this.getAttribute('href');
-    const targetElement = document.querySelector(targetId);
-    
-    if (targetElement) {
-        window.scrollTo({
-            top: targetElement.offsetTop - 80,
-            behavior: 'smooth'
-        });
+    if (this.getAttribute('href').startsWith('#')) {
+        event.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
         
-        // Fechar menu mobile se estiver aberto
-        const menuMobile = document.getElementById('mobileMenu');
-        if (!menuMobile.classList.contains('hidden')) {
-            menuMobile.classList.add('hidden');
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+            });
+            
+            // Atualizar URL sem recarregar a página
+            history.pushState(null, null, targetId);
+            
+            // Atualizar menu ativo
+            atualizarMenuAtivo(targetId);
+            
+            // Fechar menu mobile se estiver aberto
+            const menuMobile = document.getElementById('mobileMenu');
+            if (!menuMobile.classList.contains('hidden')) {
+                menuMobile.classList.add('hidden');
+            }
         }
     }
+}
+
+// Função para atualizar o menu ativo baseado na seção visível
+function atualizarMenuAtivo(targetId = null) {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+    
+    // Se um targetId foi fornecido, usar ele
+    if (targetId) {
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === targetId) {
+                link.classList.add('active');
+            }
+        });
+        return;
+    }
+    
+    // Caso contrário, determinar a seção visível
+    let currentSection = '';
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (window.scrollY >= sectionTop) {
+            currentSection = `#${section.getAttribute('id')}`;
+        }
+    });
+    
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === currentSection) {
+            link.classList.add('active');
+        }
+    });
 }
 
 // Função para mostrar/ocultar menu mobile
 function toggleMenuMobile() {
     const menu = document.getElementById('mobileMenu');
     menu.classList.toggle('hidden');
+    document.body.style.overflow = menu.classList.contains('hidden') ? '' : 'hidden';
 }
 
 // Função para mostrar/ocultar botão de scroll up
@@ -75,6 +117,9 @@ function rolarParaTopo() {
         top: 0,
         behavior: 'smooth'
     });
+    
+    // Atualizar menu ativo
+    atualizarMenuAtivo('#inicio');
 }
 
 // Função para animar elementos ao rolar
@@ -133,16 +178,46 @@ function inicializar() {
     });
     
     // Menu mobile
-    document.getElementById('mobileMenuButton').addEventListener('click', toggleMenuMobile);
-    document.getElementById('closeMobileMenu').addEventListener('click', toggleMenuMobile);
+    const mobileMenuButton = document.getElementById('mobileMenuButton');
+    const closeMobileMenu = document.getElementById('closeMobileMenu');
+    
+    if (mobileMenuButton) {
+        mobileMenuButton.addEventListener('click', toggleMenuMobile);
+    }
+    
+    if (closeMobileMenu) {
+        closeMobileMenu.addEventListener('click', toggleMenuMobile);
+    }
     
     // Botão scroll up
-    document.getElementById('scrollUp').addEventListener('click', rolarParaTopo);
-    window.addEventListener('scroll', toggleScrollUpButton);
+    const scrollUpButton = document.getElementById('scrollUp');
+    if (scrollUpButton) {
+        scrollUpButton.addEventListener('click', rolarParaTopo);
+        window.addEventListener('scroll', toggleScrollUpButton);
+        toggleScrollUpButton(); // Verificar estado inicial
+    }
     
     // Animar elementos ao rolar
     window.addEventListener('scroll', animarAoRolar);
     animarAoRolar(); // Executar uma vez ao carregar
+    
+    // Lidar com menu ativo
+    window.addEventListener('scroll', atualizarMenuAtivo);
+    atualizarMenuAtivo(); // Executar uma vez ao carregar
+    
+    // Se houver hash na URL, rolar para a seção correspondente
+    if (window.location.hash) {
+        const targetElement = document.querySelector(window.location.hash);
+        if (targetElement) {
+            setTimeout(() => {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                atualizarMenuAtivo(window.location.hash);
+            }, 100);
+        }
+    }
     
     // FAQ
     lidarComFAQ();
@@ -153,6 +228,8 @@ function inicializar() {
         formularioContato.addEventListener('submit', enviarFormularioContato);
     }
 }
+
+// Método alternativo
 
 // Esperar o DOM carregar
 document.addEventListener('DOMContentLoaded', inicializar);

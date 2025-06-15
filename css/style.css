@@ -8,10 +8,33 @@ body {
 /* Nav Links */
 .nav-link {
     @apply text-dark dark:text-primary-light hover:text-secondary dark:hover:text-secondary transition-colors duration-300;
+    color: #edcea6;
+}
+
+.nav-link.active {
+    @apply text-secondary dark:text-secondary font-medium;
+    position: relative;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #f7900a;
+    transform: scaleX(1);
+    transition: transform 0.3s ease;
 }
 
 .mobile-nav-link {
     @apply text-2xl text-primary hover:text-secondary transition-colors duration-300;
+    color: #edcea6;
+}
+
+.mobile-nav-link.active {
+    @apply text-secondary;
 }
 
 /* WhatsApp Button */
@@ -23,7 +46,7 @@ body {
 /* Scroll Up Button */
 .scroll-up-button {
     @apply fixed bottom-24 right-6 bg-secondary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg z-50 hover:bg-secondary-dark transition-transform duration-300 transform hover:scale-110;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.91);
 }
 
 /* Animações */
@@ -93,4 +116,152 @@ body {
 
 .text-primary-light {
     color: #edcea6;
+}
+
+/* Linktree Specific Styles */
+.linktree-container {
+    max-width: 28rem;
+    width: 100%;
+    padding: 2rem;
+}
+
+.linktree-profile {
+    margin-bottom: 3rem;
+}
+
+.linktree-profile img {
+    border: 4px solid #f7900a;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.linktree-profile img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(247, 144, 10, 0.3);
+}
+
+.linktree-links {
+    margin-bottom: 3rem;
+}
+
+.linktree-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border-left: 4px solid #f7900a;
+    background-color: white;
+    color: #1a1a1a;
+    font-weight: 500;
+}
+
+.dark .linktree-link {
+    background-color: #2a2a2a;
+    color: #edcea6;
+}
+
+.linktree-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.linktree-link i {
+    margin-right: 0.75rem;
+    font-size: 1.5rem;
+    color: #f7900a;
+}
+
+.linktree-badges {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.linktree-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.linktree-badge:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.linktree-footer {
+    font-size: 0.875rem;
+    color: #1a1a1a;
+}
+
+.dark .linktree-footer {
+    color: #edcea6;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+    .linktree-container {
+        padding: 1.5rem;
+    }
+    
+    .linktree-profile img {
+        width: 5rem;
+        height: 5rem;
+    }
+    
+    .linktree-link {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .linktree-link i {
+        font-size: 1.25rem;
+    }
+    #servicosH2{
+        text-align: center;
+    }
+}
+
+/* Active Menu Item Styles for Index */
+@media (min-width: 768px) {
+    .nav-link.active {
+        @apply text-secondary dark:text-secondary;
+    }
+    
+    .nav-link.active::after {
+        @apply bg-secondary dark:bg-secondary;
+    }
+}
+
+/* Estilização do Botão WhatsApp */
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: #fff;
+    border-radius: 50%;
+    padding: 15px;
+    font-size:12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 3;
+}
+
+.whatsapp-button:hover {
+    background-color: #25d366;
+    transform: scale(1.1);
+}
+
+.whatsapp-button i {
+    margin-right: 0;
+    font-size: 40px;
 }
