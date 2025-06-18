@@ -8,7 +8,6 @@ body {
 /* Nav Links */
 .nav-link {
     @apply text-dark dark:text-primary-light hover:text-secondary dark:hover:text-secondary transition-colors duration-300;
-    color: #edcea6;
 }
 
 .nav-link.active {
