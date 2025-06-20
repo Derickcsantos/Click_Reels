@@ -1,10 +1,13 @@
 // Função para inicializar o tema
 function inicializarTema() {
-    const temaSalvo = localStorage.getItem('tema') || 'light';
-    document.documentElement.classList.toggle('dark', temaSalvo === 'dark');
+    const temaPadrao = 'light'; // Forçar tema light como padrão
+    document.documentElement.classList.remove('dark'); // Garante que a classe 'dark' não seja aplicada
     
     // Atualizar ícones do tema
-    atualizarIconesTema(temaSalvo);
+    atualizarIconesTema(temaPadrao);
+    
+    // Atualizar o localStorage com o tema atual
+    localStorage.setItem('tema', temaPadrao);
 }
 
 // Função para alternar o tema
