@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="light">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,23 +13,86 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#edcea6',
-                        secondary: '#f7900a',
-                        dark: '#1a1a1a',
-                        light: '#f5f5f5',
-                    }
+                        primary: '#FF6B00',
+                        secondary: '#FF9500',
+                        dark: '#121212',
+                        light: '#1E1E1E',
+                        accent: '#FFD700',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
                 }
             }
         }
     </script>
     
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- CSS Personalizado -->
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            background-color: #121212;
+            color: #f5f5f5;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #FF6B00, #FF9500);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #FF6B00, #FF9500);
+        }
+        
+        .link-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid #FF6B00;
+        }
+        
+        .link-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 107, 0, 0.3);
+            background-color: #1E1E1E;
+        }
+        
+        .whatsapp-button {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #1E1E1E;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #FF6B00;
+            border-radius: 4px;
+        }
+    </style>
 </head>
-<body class="bg-primary-light dark:bg-dark min-h-screen flex flex-col items-center justify-center p-4 transition-colors duration-300">
+<body class="min-h-screen flex items-center justify-center p-4">
     <!-- VLibras -->
     <div vw class="enabled">
         <div vw-access-button class="active"></div>
@@ -39,74 +102,68 @@
     </div>
     
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/5511949648015" class="whatsapp-button" target="_blank">
-        <i class="fab fa-whatsapp"></i>
+    <a href="https://wa.me/5511949648015" class="fixed bottom-6 right-6 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center z-50 shadow-xl whatsapp-button">
+        <i class="fab fa-whatsapp text-2xl"></i>
     </a>
     
-    <!-- Toggle Theme -->
-    <button id="themeToggle" class="absolute top-4 right-4 p-2 rounded-full bg-primary dark:bg-dark-light focus:outline-none">
-        <i class="fas fa-moon dark:hidden"></i>
-        <i class="fas fa-sun hidden dark:block"></i>
-    </button>
-    
     <!-- Linktree Content -->
-    <div class="w-full max-w-md mx-auto text-center animate-fade-in">
+    <div class="w-full max-w-md mx-auto text-center">
         <!-- Profile -->
         <div class="mb-8">
-            <img src="img/logo.jpg" alt="Click Reels Logo" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-secondary">
-            <h1 class="text-2xl font-bold text-dark dark:text-primary mb-2">Click Reels</h1>
-            <p class="text-dark dark:text-primary-light">Marketing Digital • Conteúdo Viral • Crescimento Online</p>
+            <img src="img/logo.jpg" alt="Click Reels Logo" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-primary object-cover">
+            <h1 class="text-2xl font-bold text-white mb-2">Click <span class="gradient-text">Reels</span></h1>
+            <p class="text-gray-400">Marketing Digital • Conteúdo Viral • Crescimento Online</p>
         </div>
         
         <!-- Links -->
         <div class="space-y-4 mb-8">
             <!-- WhatsApp -->
-            <a href="https://wa.me/5511949648015" target="_blank" class="block bg-white dark:bg-dark-light hover:bg-primary dark:hover:bg-dark-lightest text-dark dark:text-primary-light font-medium py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 border-l-4 border-secondary flex items-center justify-center">
-                <i class="fab fa-whatsapp text-2xl mr-3 text-secondary"></i>
+            <a href="https://wa.me/5511949648015" target="_blank" class="block link-card bg-dark text-white font-medium py-4 px-6 rounded-lg shadow-md transition-all duration-300 flex items-center justify-center">
+                <i class="fab fa-whatsapp text-2xl mr-3 gradient-text"></i>
                 WhatsApp
             </a>
             
             <!-- Instagram -->
-            <a href="https://www.instagram.com/clickreels_/" target="_blank" class="block bg-white dark:bg-dark-light hover:bg-primary dark:hover:bg-dark-lightest text-dark dark:text-primary-light font-medium py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 border-l-4 border-secondary flex items-center justify-center">
-                <i class="fab fa-instagram text-2xl mr-3 text-secondary"></i>
+            <a href="https://www.instagram.com/clickreels_/" target="_blank" class="block link-card bg-dark text-white font-medium py-4 px-6 rounded-lg shadow-md transition-all duration-300 flex items-center justify-center">
+                <i class="fab fa-instagram text-2xl mr-3 gradient-text"></i>
                 Instagram
             </a>
             
             <!-- Site -->
-            <a href="https://https://clickreels.vercel.app" class="block bg-white dark:bg-dark-light hover:bg-primary dark:hover:bg-dark-lightest text-dark dark:text-primary-light font-medium py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 border-l-4 border-secondary flex items-center justify-center">
-                <i class="fas fa-globe text-2xl mr-3 text-secondary"></i>
+            <a href="https://clickreels.vercel.app" class="block link-card bg-dark text-white font-medium py-4 px-6 rounded-lg shadow-md transition-all duration-300 flex items-center justify-center">
+                <i class="fas fa-globe text-2xl mr-3 gradient-text"></i>
                 Nosso Site Oficial
             </a>
             
             <!-- Planos -->
-            <a href="https://www.clickreels.com.br#planos" class="block bg-white dark:bg-dark-light hover:bg-primary dark:hover:bg-dark-lightest text-dark dark:text-primary-light font-medium py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 border-l-4 border-secondary flex items-center justify-center">
-                <i class="fas fa-tags text-2xl mr-3 text-secondary"></i>
+            <a href="https://clickreels.vercel.app#planos" class="block link-card bg-dark text-white font-medium py-4 px-6 rounded-lg shadow-md transition-all duration-300 flex items-center justify-center">
+                <i class="fas fa-tags text-2xl mr-3 gradient-text"></i>
                 Nossos Planos
             </a>
             
             <!-- Portfólio -->
-            <a href="https://portfolio.clickreels.com.br" target="_blank" class="block bg-white dark:bg-dark-light hover:bg-primary dark:hover:bg-dark-lightest text-dark dark:text-primary-light font-medium py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 border-l-4 border-secondary flex items-center justify-center">
-                <i class="fas fa-images text-2xl mr-3 text-secondary"></i>
+            <a href="https://portfolio.clickreels.com.br" target="_blank" class="block link-card bg-dark text-white font-medium py-4 px-6 rounded-lg shadow-md transition-all duration-300 flex items-center justify-center">
+                <i class="fas fa-images text-2xl mr-3 gradient-text"></i>
                 Nosso Portfólio
             </a>
         </div>
         
         <!-- Badges -->
         <div class="flex justify-center space-x-4 mb-8">
-            <a href="https://wa.me/5511949648015" target="_blank" class="bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-md transition">
+            <a href="https://wa.me/5511949648015" target="_blank" class="bg-[#25D366] hover:bg-[#128C7E] text-white p-3 rounded-full shadow-md transition transform hover:scale-110">
                 <i class="fab fa-whatsapp text-xl"></i>
             </a>
-            <a href="https://www.instagram.com/clickreels_/" target="_blank" class="bg-pink-500 hover:bg-pink-600 text-white p-3 rounded-full shadow-md transition">
+            <a href="https://www.instagram.com/clickreels_/" target="_blank" class="bg-[#E1306C] hover:bg-[#C13584] text-white p-3 rounded-full shadow-md transition transform hover:scale-110">
                 <i class="fab fa-instagram text-xl"></i>
             </a>
-            <a href="https://https://clickreels.vercel.app" class="bg-secondary hover:bg-secondary-dark text-white p-3 rounded-full shadow-md transition">
+            <a href="https://clickreels.vercel.app" class="gradient-bg hover:opacity-90 text-white p-3 rounded-full shadow-md transition transform hover:scale-110">
                 <i class="fas fa-globe text-xl"></i>
             </a>
         </div>
         
         <!-- Footer -->
-        <div class="text-sm text-dark dark:text-primary-light">
-            <p>© 2023 Click Reels. Todos os direitos reservados.</p>
+        <div class="text-sm text-gray-400">
+            <p>© 2025 Click Reels. Todos os direitos reservados.</p>
             <p class="mt-2">contato@clickreels.com.br</p>
         </div>
     </div>

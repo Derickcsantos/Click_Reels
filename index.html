@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="light">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,10 +10,10 @@
     <meta property="og:title" content="Click Reels - Marketing Digital e Crescimento Online">
     <meta property="og:description" content="Especialistas em marketing digital, engajamento em redes sociais e criação de conteúdo viral.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://https://clickreels.vercel.app">
+    <meta property="og:url" content="https://clickreels.vercel.app">
     
     <!-- Favicon -->
-    <link rel="icon" style="border-radius: 50%;" href="img/logo.jpg" type="image/jpg">
+    <link rel="icon" href="img/logo.jpg" type="image/jpg">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -22,23 +22,113 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#edcea6',
-                        secondary: '#f7900a',
-                        dark: '#1a1a1a',
-                        light: '#f5f5f5',
-                    }
+                        primary: '#FF6B00',
+                        secondary: '#FF9500',
+                        dark: '#121212',
+                        light: '#1E1E1E',
+                        accent: '#FFD700',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
                 }
             }
         }
     </script>
     
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- CSS Personalizado -->
-    <link rel="stylesheet" href="css/style.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* Custom Styles */
+        body {
+            background-color: #121212;
+            color: #f5f5f5;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #FF6B00, #FF9500);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #FF6B00, #FF9500);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+            border: 1px solid #2a2a2a;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 107, 0, 0.2);
+            border-color: #FF6B00;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #FF6B00;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #1E1E1E;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #FF6B00;
+            border-radius: 4px;
+        }
+        
+        .whatsapp-button {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+    </style>
 </head>
-<body class="bg-primary-light dark:bg-dark transition-colors duration-300">
+<body class="bg-dark">
     <!-- VLibras -->
     <div vw class="enabled">
         <div vw-access-button class="active"></div>
@@ -47,52 +137,50 @@
         </div>
     </div>
 
-    <a href="https://wa.me/5511949648015" target="_blank" class="whatsapp-button">
-        <!-- <img src="/img/whatsapp.7f3687b9-847d-4f86-bb5c-c73259e2b38e" alt="WhatsApp"> -->
-        <i class="fab fa-whatsapp"></i>
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/5511949648015" target="_blank" class="fixed bottom-6 right-6 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center z-50 shadow-xl whatsapp-button">
+        <i class="fab fa-whatsapp text-2xl"></i>
     </a>
     
     <!-- Header -->
-    <header class="fixed w-full z-50 bg-primary dark:bg-dark shadow-md">
+    <header class="fixed w-full z-50 bg-dark bg-opacity-90 backdrop-blur-sm border-b border-gray-800">
         <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
             <!-- Logo -->
             <div class="flex items-center">
-                <img src="img/logo.jpg" alt="Click Reels Logo" class="h-10 mr-2" style="border-radius: 50%;">
-                <span class="text-xl font-bold text-secondary dark:text-primary">Click Reels</span>
+                <img src="img/logo.jpg" alt="Click Reels Logo" class="h-10 w-10 rounded-full mr-3 object-cover border-2 border-primary">
+                <span class="text-xl font-bold text-white">Click <span class="gradient-text">Reels</span></span>
             </div>
             
             <!-- Menu Desktop -->
             <div class="hidden md:flex items-center space-x-8">
-                <a href="#inicio" class="nav-link">Início</a>
-                <a href="#servicos" class="nav-link">Serviços</a>
-                <a href="#planos" class="nav-link">Planos</a>
-                <a href="#sobre" class="nav-link">Sobre Nós</a>
-                <a href="#contato" class="nav-link">Contato</a>
-                <a href="linktree.html" class="nav-link">Links</a>
-                
+                <a href="#inicio" class="nav-link text-gray-300 hover:text-white font-medium active">Início</a>
+                <a href="#servicos" class="nav-link text-gray-300 hover:text-white font-medium">Serviços</a>
+                <a href="#planos" class="nav-link text-gray-300 hover:text-white font-medium">Planos</a>
+                <a href="#sobre" class="nav-link text-gray-300 hover:text-white font-medium">Sobre Nós</a>
+                <a href="#contato" class="nav-link text-gray-300 hover:text-white font-medium">Contato</a>
+                <a href="linktree.html" class="nav-link text-gray-300 hover:text-white font-medium">Links</a>
             </div>
             
             <!-- Menu Mobile Button -->
-            <button id="mobileMenuButton" class="md:hidden p-2 rounded-full focus:outline-none">
-                <i class="fas fa-bars"></i>
+            <button id="mobileMenuButton" class="md:hidden p-2 rounded-full focus:outline-none text-gray-300 hover:text-white">
+                <i class="fas fa-bars text-xl"></i>
             </button>
         </nav>
         
         <!-- Menu Mobile -->
-        <div id="mobileMenu" class="hidden md:hidden fixed inset-0 bg-dark bg-opacity-90 z-40 transition-all duration-300">
+        <div id="mobileMenu" class="hidden md:hidden fixed inset-0 bg-dark bg-opacity-95 z-40 transition-all duration-300 backdrop-blur-sm">
             <div class="flex justify-end p-4">
-                <button id="closeMobileMenu" class="p-2 text-primary">
+                <button id="closeMobileMenu" class="p-2 text-gray-300 hover:text-white">
                     <i class="fas fa-times text-2xl"></i>
                 </button>
             </div>
             <div class="flex flex-col items-center justify-center h-full space-y-8">
-                <a href="#inicio" class="mobile-nav-link">Início</a>
-                <a href="#servicos" class="mobile-nav-link">Serviços</a>
-                <a href="#planos" class="mobile-nav-link">Planos</a>
-                <a href="#sobre" class="mobile-nav-link">Sobre Nós</a>
-                <a href="#contato" class="mobile-nav-link">Contato</a>
-                <a href="linktree.html" class="mobile-nav-link">Links</a>
-                
+                <a href="#inicio" class="text-2xl text-gray-300 hover:text-white font-medium">Início</a>
+                <a href="#servicos" class="text-2xl text-gray-300 hover:text-white font-medium">Serviços</a>
+                <a href="#planos" class="text-2xl text-gray-300 hover:text-white font-medium">Planos</a>
+                <a href="#sobre" class="text-2xl text-gray-300 hover:text-white font-medium">Sobre Nós</a>
+                <a href="#contato" class="text-2xl text-gray-300 hover:text-white font-medium">Contato</a>
+                <a href="linktree.html" class="text-2xl text-gray-300 hover:text-white font-medium">Links</a>
             </div>
         </div>
     </header>
@@ -100,106 +188,131 @@
     <!-- Main Content -->
     <main>
         <!-- Hero Section -->
-        <section id="inicio" class="pt-32 pb-20 px-4 animate-fade-in">
+        <section id="inicio" class="pt-32 pb-20 px-4">
             <div class="container mx-auto flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0">
-                    <h1 class="text-4xl md:text-5xl font-bold text-dark dark:text-primary mb-6">
-                        Alcance o Sucesso Digital com a <span class="text-secondary">Click Reels</span>
+                <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+                    <h1 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                        Alcance o Sucesso Digital com a <span class="gradient-text">Click Reels</span>
                     </h1>
-                    <p class="text-lg text-dark dark:text-primary-light mb-8">
+                    <p class="text-lg text-gray-300 mb-8">
                         Transformamos sua presença online com estratégias de marketing digital, engajamento em redes sociais e conteúdo viral que realmente convertem.
                     </p>
                     <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                        <a href="#planos" class="bg-secondary hover:bg-secondary-dark text-white font-bold py-3 px-6 rounded-lg text-center transition">
+                        <a href="#planos" class="gradient-bg hover:opacity-90 text-white font-bold py-3 px-6 rounded-lg text-center transition shadow-lg">
                             Conheça Nossos Planos
                         </a>
-                        <a href="#contato" class="border-2 border-secondary text-secondary dark:text-primary hover:bg-secondary hover:text-white font-bold py-3 px-6 rounded-lg text-center transition">
+                        <a href="#contato" class="border-2 border-primary text-primary hover:bg-primary hover:text-dark font-bold py-3 px-6 rounded-lg text-center transition">
                             Fale Conosco
                         </a>
                     </div>
                 </div>
-                <div class="md:w-1/2">
-                   <div class="relative flex flex-col rounded-xl bg-dark bg-clip-border text-gray-700 shadow-md">
-                    <div class="relative mx-4 mt-4 flex flex-col gap-4 overflow-hidden rounded-none bg-transparent bg-clip-border text-gray-700 shadow-none md:flex-row md:items-center">   
-                    </div>
-                    <div class="pt-6 px-2 pb-0">
-                        <div id="bar-chart"></div>
-                    </div>
+                <div class="md:w-1/2" data-aos="fade-left">
+                    <div class="relative bg-light rounded-2xl p-6 shadow-xl border border-gray-800">
+                        <div class="flex items-center mb-6">
+                            <div class="h-3 w-3 rounded-full bg-red-500 mr-2"></div>
+                            <div class="h-3 w-3 rounded-full bg-yellow-500 mr-2"></div>
+                            <div class="h-3 w-3 rounded-full bg-green-500"></div>
+                        </div>
+                        <div class="bg-dark rounded-lg p-4 border border-gray-800">
+                            <div class="flex items-center mb-4">
+                                <div class="h-10 w-10 rounded-full bg-gradient-to-r from-primary to-secondary mr-3"></div>
+                                <div>
+                                    <div class="h-3 w-24 bg-gray-700 rounded mb-2"></div>
+                                    <div class="h-2 w-16 bg-gray-800 rounded"></div>
+                                </div>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="h-3 w-full bg-gray-700 rounded"></div>
+                                <div class="h-3 w-3/4 bg-gray-700 rounded"></div>
+                                <div class="h-3 w-1/2 bg-gray-700 rounded"></div>
+                            </div>
+                            <div class="mt-6 flex justify-between">
+                                <div class="h-8 w-8 rounded-full bg-gray-700"></div>
+                                <div class="h-8 w-8 rounded-full bg-gray-700"></div>
+                                <div class="h-8 w-8 rounded-full bg-gray-700"></div>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-4 -right-4 h-20 w-20 bg-primary rounded-full opacity-20"></div>
                     </div>
                 </div>
             </div>
         </section>
         
         <!-- Serviços Section -->
-        <section id="servicos" class="py-16 bg-primary dark:bg-dark-light px-4 animate-fade-in">
+        <section id="servicos" class="py-16 px-4 bg-light">
             <div class="container mx-auto">
-                <h2 class="text-3xl font-bold text-center text-dark dark:text-primary mb-12" id="servicosH2">
-                    <span class="text-secondary">Serviços</span>
-                </h2>
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl font-bold text-white mb-4">
+                        Nossos <span class="gradient-text">Serviços</span>
+                    </h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto">
+                        Oferecemos soluções completas para impulsionar sua presença digital e alcançar resultados excepcionais.
+                    </p>
+                </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Serviço 1 -->
-                    <div class="bg-white dark:bg-dark rounded-lg shadow-lg p-6 transform hover:scale-105 transition duration-300">
-                        <div class="text-secondary text-4xl mb-4">
-                            <i class="fas fa-chart-line"></i>
+                    <div class="bg-dark rounded-xl p-6 card-hover" data-aos="fade-up" data-aos-delay="100">
+                        <div class="gradient-bg text-white w-14 h-14 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-chart-line text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-dark dark:text-primary mb-3">Marketing Digital</h3>
-                        <p class="text-dark dark:text-primary-light">
+                        <h3 class="text-xl font-bold text-white mb-3">Marketing Digital</h3>
+                        <p class="text-gray-400">
                             Estratégias personalizadas para alavancar sua marca nas redes sociais e aumentar sua visibilidade online.
                         </p>
                     </div>
                     
                     <!-- Serviço 2 -->
-                    <div class="bg-white dark:bg-dark rounded-lg shadow-lg p-6 transform hover:scale-105 transition duration-300">
-                        <div class="text-secondary text-4xl mb-4">
-                            <i class="fas fa-users"></i>
+                    <div class="bg-dark rounded-xl p-6 card-hover" data-aos="fade-up" data-aos-delay="150">
+                        <div class="gradient-bg text-white w-14 h-14 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-users text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-dark dark:text-primary mb-3">Engajamento</h3>
-                        <p class="text-dark dark:text-primary-light">
+                        <h3 class="text-xl font-bold text-white mb-3">Engajamento</h3>
+                        <p class="text-gray-400">
                             Aumentamos interações, seguidores e fidelização de público para construir uma comunidade engajada.
                         </p>
                     </div>
                     
                     <!-- Serviço 3 -->
-                    <div class="bg-white dark:bg-dark rounded-lg shadow-lg p-6 transform hover:scale-105 transition duration-300">
-                        <div class="text-secondary text-4xl mb-4">
-                            <i class="fas fa-rocket"></i>
+                    <div class="bg-dark rounded-xl p-6 card-hover" data-aos="fade-up" data-aos-delay="200">
+                        <div class="gradient-bg text-white w-14 h-14 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-rocket text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-dark dark:text-primary mb-3">Crescimento Online</h3>
-                        <p class="text-dark dark:text-primary-light">
+                        <h3 class="text-xl font-bold text-white mb-3">Crescimento Online</h3>
+                        <p class="text-gray-400">
                             Táticas comprovadas para expandir sua presença digital e alcançar novos públicos.
                         </p>
                     </div>
                     
                     <!-- Serviço 4 -->
-                    <div class="bg-white dark:bg-dark rounded-lg shadow-lg p-6 transform hover:scale-105 transition duration-300">
-                        <div class="text-secondary text-4xl mb-4">
-                            <i class="fas fa-video"></i>
+                    <div class="bg-dark rounded-xl p-6 card-hover" data-aos="fade-up" data-aos-delay="250">
+                        <div class="gradient-bg text-white w-14 h-14 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-video text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-dark dark:text-primary mb-3">Conteúdo Criativo</h3>
-                        <p class="text-dark dark:text-primary-light">
+                        <h3 class="text-xl font-bold text-white mb-3">Conteúdo Criativo</h3>
+                        <p class="text-gray-400">
                             Produção de conteúdo visual impactante e viral para redes sociais que capta atenção e engaja.
                         </p>
                     </div>
                     
                     <!-- Serviço 5 -->
-                    <div class="bg-white dark:bg-dark rounded-lg shadow-lg p-6 transform hover:scale-105 transition duration-300">
-                        <div class="text-secondary text-4xl mb-4">
-                            <i class="fas fa-ad"></i>
+                    <div class="bg-dark rounded-xl p-6 card-hover" data-aos="fade-up" data-aos-delay="300">
+                        <div class="gradient-bg text-white w-14 h-14 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-ad text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-dark dark:text-primary mb-3">Gestão de Tráfego</h3>
-                        <p class="text-dark dark:text-primary-light">
+                        <h3 class="text-xl font-bold text-white mb-3">Gestão de Tráfego</h3>
+                        <p class="text-gray-400">
                             Anúncios otimizados para direcionar o público certo para seu negócio e maximizar conversões.
                         </p>
                     </div>
                     
                     <!-- Serviço 6 -->
-                    <div class="bg-white dark:bg-dark rounded-lg shadow-lg p-6 transform hover:scale-105 transition duration-300">
-                        <div class="text-secondary text-4xl mb-4">
-                            <i class="fas fa-lightbulb"></i>
+                    <div class="bg-dark rounded-xl p-6 card-hover" data-aos="fade-up" data-aos-delay="350">
+                        <div class="gradient-bg text-white w-14 h-14 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-lightbulb text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-dark dark:text-primary mb-3">Consultoria</h3>
-                        <p class="text-dark dark:text-primary-light">
+                        <h3 class="text-xl font-bold text-white mb-3">Consultoria</h3>
+                        <p class="text-gray-400">
                             Análise especializada e plano de ação personalizado para seu negócio alcançar seus objetivos.
                         </p>
                     </div>
@@ -208,168 +321,170 @@
         </section>
         
         <!-- Planos Section -->
-        <section id="planos" class="py-16 px-4 animate-fade-in">
+        <section id="planos" class="py-16 px-4">
             <div class="container mx-auto">
-                <h2 class="text-3xl font-bold text-center text-dark dark:text-primary mb-4">
-                    Nossos <span class="text-secondary">Planos</span>
-                </h2>
-                <p class="text-center text-dark dark:text-primary-light max-w-2xl mx-auto mb-12">
-                    Escolha o plano que melhor se adapta às necessidades do seu negócio. Todos incluem suporte especializado.
-                </p>
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl font-bold text-white mb-4">
+                        Nossos <span class="gradient-text">Planos</span>
+                    </h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto">
+                        Escolha o plano que melhor se adapta às necessidades do seu negócio. Todos incluem suporte especializado.
+                    </p>
+                </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                     <!-- Plano Básico -->
-                    <div class="bg-white dark:bg-dark rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
-                        <div class="bg-primary dark:bg-dark-light p-6 text-center">
-                            <h3 class="text-xl font-bold text-dark dark:text-primary">Básico</h3>
-                            <div class="mt-4">
-                                <span class="text-4xl font-bold text-secondary">R$89,90</span>
-                                <span class="text-dark dark:text-primary-light">/mês</span>
+                    <div class="bg-light rounded-xl p-6 border border-gray-800 transform hover:scale-[1.02] transition duration-300" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-center mb-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Básico</h3>
+                            <div class="mb-4">
+                                <span class="text-4xl font-bold gradient-text">R$89,90</span>
+                                <span class="text-gray-400">/mês</span>
                             </div>
+                            <div class="gradient-bg h-1 w-20 mx-auto rounded-full"></div>
                         </div>
-                        <div class="p-6">
-                            <ul class="space-y-3 text-dark dark:text-primary-light">
-                                <li class="flex items-center">
-                                    <i class="fas fa-check text-secondary mr-2"></i>
-                                   <p>Gestão de 1 rede social</p>
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check text-secondary mr-2"></i>
-                                    12 posts/mês
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check text-secondary mr-2"></i>
-                                    Relatório mensal
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check text-secondary mr-2"></i>
-                                    Suporte por e-mail
-                                </li>
-                            </ul>
-                            <button class="w-full mt-8 bg-secondary hover:bg-secondary-dark text-white font-bold py-3 px-6 rounded-lg transition">
-                                Assinar Plano
-                            </button>
-                        </div>
+                        <ul class="space-y-3 text-gray-400 mb-8">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Gestão de 1 rede social
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                12 posts/mês
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Relatório mensal
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Suporte por e-mail
+                            </li>
+                        </ul>
+                        <button class="w-full gradient-bg hover:opacity-90 text-white font-bold py-3 px-6 rounded-lg transition shadow-lg">
+                            Assinar Plano
+                        </button>
                     </div>
                     
                     <!-- Plano Intermediário -->
-                    <div class="bg-white dark:bg-dark rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 border-2 border-secondary relative">
-                        <div class="absolute top-0 right-0 bg-secondary text-white text-xs font-bold px-3 py-1 transform translate-x-2 -translate-y-2 rotate-12">
+                    <div class="bg-dark rounded-xl p-6 border-2 border-primary transform hover:scale-[1.02] transition duration-300 relative overflow-hidden" data-aos="fade-up" data-aos-delay="150">
+                        <div class="absolute top-0 right-0 bg-primary text-dark text-xs font-bold px-3 py-1 transform translate-x-2 -translate-y-2 rotate-12">
                             POPULAR
                         </div>
-                        <div class="bg-primary dark:bg-dark-light p-6 text-center">
-                            <h3 class="text-xl font-bold text-dark dark:text-primary">Intermediário</h3>
-                            <div class="mt-4">
-                                <span class="text-4xl font-bold text-secondary">R$149,90</span>
-                                <span class="text-dark dark:text-primary-light">/mês</span>
+                        <div class="text-center mb-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Intermediário</h3>
+                            <div class="mb-4">
+                                <span class="text-4xl font-bold gradient-text">R$149,90</span>
+                                <span class="text-gray-400">/mês</span>
                             </div>
+                            <div class="gradient-bg h-1 w-20 mx-auto rounded-full"></div>
                         </div>
-                        <div class="p-6">
-                            <ul class="space-y-3 text-dark dark:text-primary-light">
-                                <li class="flex items-center">
-                                    <i class="fas fa-check text-secondary mr-2"></i>
-                                    Gestão de 2 redes sociais
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check text-secondary mr-2"></i>
-                                    24 posts/mês
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check text-secondary mr-2"></i>
-                                    Relatório semanal
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check text-secondary mr-2"></i>
-                                    1 campanha de anúncios
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check text-secondary mr-2"></i>
-                                    Suporte por WhatsApp
-                                </li>
-                            </ul>
-                            <button class="w-full mt-8 bg-secondary hover:bg-secondary-dark text-white font-bold py-3 px-6 rounded-lg transition">
-                                Assinar Plano
-                            </button>
-                        </div>
+                        <ul class="space-y-3 text-gray-400 mb-8">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Gestão de 2 redes sociais
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                24 posts/mês
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Relatório semanal
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                1 campanha de anúncios
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Suporte por WhatsApp
+                            </li>
+                        </ul>
+                        <button class="w-full gradient-bg hover:opacity-90 text-white font-bold py-3 px-6 rounded-lg transition shadow-lg">
+                            Assinar Plano
+                        </button>
                     </div>
                     
                     <!-- Plano Premium -->
-                    <div class="bg-white dark:bg-dark rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
-                        <div class="bg-primary dark:bg-dark-light p-6 text-center">
-                            <h3 class="text-xl font-bold text-dark dark:text-primary">Premium</h3>
-                            <div class="mt-4">
-                                <span class="text-4xl font-bold text-secondary">R$249,90</span>
-                                <span class="text-dark dark:text-primary-light">/mês</span>
+                    <div class="bg-light rounded-xl p-6 border border-gray-800 transform hover:scale-[1.02] transition duration-300" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-center mb-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Premium</h3>
+                            <div class="mb-4">
+                                <span class="text-4xl font-bold gradient-text">R$249,90</span>
+                                <span class="text-gray-400">/mês</span>
                             </div>
+                            <div class="gradient-bg h-1 w-20 mx-auto rounded-full"></div>
                         </div>
-                        <div class="p-6">
-                            <ul class="space-y-3 text-dark dark:text-primary-light">
-                                <li class="flex items-center">
-                                    <i class="fas fa-check text-secondary mr-2"></i>
-                                    Gestão de 3 redes sociais
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check text-secondary mr-2"></i>
-                                    48 posts/mês
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check text-secondary mr-2"></i>
-                                    Relatório diário
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check text-secondary mr-2"></i>
-                                    3 campanhas de anúncios
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check text-secondary mr-2"></i>
-                                    Conteúdo viral exclusivo
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check text-secondary mr-2"></i>
-                                    Suporte 24/7
-                                </li>
-                            </ul>
-                            <button class="w-full mt-8 bg-secondary hover:bg-secondary-dark text-white font-bold py-3 px-6 rounded-lg transition">
-                                Assinar Plano
-                            </button>
-                        </div>
+                        <ul class="space-y-3 text-gray-400 mb-8">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Gestão de 3 redes sociais
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                48 posts/mês
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Relatório diário
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                3 campanhas de anúncios
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Conteúdo viral exclusivo
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-primary mr-2"></i>
+                                Suporte 24/7
+                            </li>
+                        </ul>
+                        <button class="w-full gradient-bg hover:opacity-90 text-white font-bold py-3 px-6 rounded-lg transition shadow-lg">
+                            Assinar Plano
+                        </button>
                     </div>
                 </div>
             </div>
         </section>
         
         <!-- Sobre Nós Section -->
-        <section id="sobre" class="py-16 bg-primary dark:bg-dark-light px-4 animate-fade-in">
+        <section id="sobre" class="py-16 px-4 bg-light">
             <div class="container mx-auto">
                 <div class="flex flex-col md:flex-row items-center">
-                    <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
-                        <img src="img/equipeClick.jpg" alt="Equipe Click Reels" class="rounded-lg shadow-xl w-full">
+                    <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10" data-aos="fade-right">
+                        <div class="relative">
+                            <img src="img/equipeClick.jpg" alt="Equipe Click Reels" class="rounded-xl shadow-xl w-full border border-gray-800">
+                            <div class="absolute -bottom-4 -right-4 h-20 w-20 bg-primary rounded-full opacity-20"></div>
+                        </div>
                     </div>
-                    <div class="md:w-1/2">
-                        <h2 class="text-3xl font-bold text-dark dark:text-primary mb-6">
-                            Sobre a <span class="text-secondary">Click Reels</span>
+                    <div class="md:w-1/2" data-aos="fade-left">
+                        <h2 class="text-3xl font-bold text-white mb-6">
+                            Sobre a <span class="gradient-text">Click Reels</span>
                         </h2>
-                        <p class="text-dark dark:text-primary-light mb-4">
+                        <p class="text-gray-400 mb-4">
                             Somos uma agência de marketing digital especializada em criar estratégias inovadoras para impulsionar negócios no ambiente online. Nossa equipe é formada por especialistas em redes sociais, criação de conteúdo e growth hacking.
                         </p>
-                        <p class="text-dark dark:text-primary-light mb-4">
+                        <p class="text-gray-400 mb-4">
                             Fundada em 2020, já ajudamos mais de 200 marcas a alcançarem seus objetivos digitais, desde pequenos negócios até grandes empresas. Nosso diferencial está na abordagem personalizada e na paixão por resultados.
                         </p>
-                        <p class="text-dark dark:text-primary-light mb-6">
+                        <p class="text-gray-400 mb-8">
                             Acreditamos que todo negócio tem potencial para brilhar online, e estamos aqui para tornar isso realidade com estratégias criativas e baseadas em dados.
                         </p>
-                        <div class="flex space-x-4">
-                            <div class="text-center">
-                                <span class="text-3xl font-bold text-secondary">200+</span>
-                                <p class="text-dark dark:text-primary-light">Clientes Satisfeitos</p>
+                        <div class="grid grid-cols-3 gap-4">
+                            <div class="text-center p-4 bg-dark rounded-lg border border-gray-800">
+                                <span class="text-3xl font-bold gradient-text">200+</span>
+                                <p class="text-gray-400 text-sm">Clientes Satisfeitos</p>
                             </div>
-                            <div class="text-center">
-                                <span class="text-3xl font-bold text-secondary">5M+</span>
-                                <p class="text-dark dark:text-primary-light">Seguidores Gerados</p>
+                            <div class="text-center p-4 bg-dark rounded-lg border border-gray-800">
+                                <span class="text-3xl font-bold gradient-text">5M+</span>
+                                <p class="text-gray-400 text-sm">Seguidores Gerados</p>
                             </div>
-                            <div class="text-center">
-                                <span class="text-3xl font-bold text-secondary">97%</span>
-                                <p class="text-dark dark:text-primary-light">Taxa de Satisfação</p>
+                            <div class="text-center p-4 bg-dark rounded-lg border border-gray-800">
+                                <span class="text-3xl font-bold gradient-text">97%</span>
+                                <p class="text-gray-400 text-sm">Taxa de Satisfação</p>
                             </div>
                         </div>
                     </div>
@@ -378,26 +493,31 @@
         </section>
         
         <!-- Depoimentos Section -->
-        <section class="py-16 px-4 animate-fade-in">
+        <section class="py-16 px-4">
             <div class="container mx-auto">
-                <h2 class="text-3xl font-bold text-center text-dark dark:text-primary mb-12">
-                    O que dizem nossos <span class="text-secondary">clientes</span>
-                </h2>
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl font-bold text-white mb-4">
+                        O que dizem nossos <span class="gradient-text">clientes</span>
+                    </h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto">
+                        Veja o que nossos clientes têm a dizer sobre nossos serviços e resultados.
+                    </p>
+                </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Depoimento 1 -->
-                    <div class="bg-white dark:bg-dark rounded-lg shadow-lg p-6">
+                    <div class="bg-light rounded-xl p-6 border border-gray-800" data-aos="fade-up" data-aos-delay="100">
                         <div class="flex items-center mb-4">
-                            <img src="img/pessoaAvaliando3.jpg" alt="Cliente" class="w-12 h-12 rounded-full mr-4">
+                            <img src="img/pessoaAvaliando3.jpg" alt="Cliente" class="w-12 h-12 rounded-full mr-4 object-cover border-2 border-primary">
                             <div>
-                                <h4 class="font-bold text-dark dark:text-primary">Ana Silva</h4>
-                                <p class="text-secondary text-sm">@aninha_silva</p>
+                                <h4 class="font-bold text-white">Ana Silva</h4>
+                                <p class="text-primary text-sm">@aninha_silva</p>
                             </div>
                         </div>
-                        <p class="text-dark dark:text-primary-light">
+                        <p class="text-gray-400 mb-4">
                             "A Click Reels transformou completamente meu Instagram. Em 3 meses, meu engajamento aumentou 300% e já fechei vários clientes através da plataforma. Super recomendo!"
                         </p>
-                        <div class="mt-4 text-yellow-400">
+                        <div class="text-yellow-400">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -407,18 +527,18 @@
                     </div>
                     
                     <!-- Depoimento 2 -->
-                    <div class="bg-white dark:bg-dark rounded-lg shadow-lg p-6">
+                    <div class="bg-light rounded-xl p-6 border border-gray-800" data-aos="fade-up" data-aos-delay="150">
                         <div class="flex items-center mb-4">
-                            <img src="img/pessoaAvaliando1.jpg" alt="Cliente" class="w-12 h-12 rounded-full mr-4">
+                            <img src="img/pessoaAvaliando1.jpg" alt="Cliente" class="w-12 h-12 rounded-full mr-4 object-cover border-2 border-primary">
                             <div>
-                                <h4 class="font-bold text-dark dark:text-primary">Carlos Mendes</h4>
-                                <p class="text-secondary text-sm">@carlosmendes</p>
+                                <h4 class="font-bold text-white">Carlos Mendes</h4>
+                                <p class="text-primary text-sm">@carlosmendes</p>
                             </div>
                         </div>
-                        <p class="text-dark dark:text-primary-light">
+                        <p class="text-gray-400 mb-4">
                             "Contratei o plano Premium para minha loja virtual e os resultados foram impressionantes. Aumentamos nossas vendas em 150% no primeiro mês. O time é super atencioso e profissional."
                         </p>
-                        <div class="mt-4 text-yellow-400">
+                        <div class="text-yellow-400">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -428,18 +548,18 @@
                     </div>
                     
                     <!-- Depoimento 3 -->
-                    <div class="bg-white dark:bg-dark rounded-lg shadow-lg p-6">
+                    <div class="bg-light rounded-xl p-6 border border-gray-800" data-aos="fade-up" data-aos-delay="200">
                         <div class="flex items-center mb-4">
-                            <img src="img/pessoaAvaliando2.jpg" alt="Cliente" class="w-12 h-12 rounded-full mr-4">
+                            <img src="img/pessoaAvaliando2.jpg" alt="Cliente" class="w-12 h-12 rounded-full mr-4 object-cover border-2 border-primary">
                             <div>
-                                <h4 class="font-bold text-dark dark:text-primary">Juliana Costa</h4>
-                                <p class="text-secondary text-sm">@jucostamkt</p>
+                                <h4 class="font-bold text-white">Juliana Costa</h4>
+                                <p class="text-primary text-sm">@jucostamkt</p>
                             </div>
                         </div>
-                        <p class="text-dark dark:text-primary-light">
+                        <p class="text-gray-400 mb-4">
                             "Como influencer, minha marca pessoal é tudo. A Click Reels me ajudou a criar conteúdo viral e aumentar minha base de seguidores de forma orgânica. Melhor investimento que já fiz!"
                         </p>
-                        <div class="mt-4 text-yellow-400">
+                        <div class="text-yellow-400">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -452,11 +572,11 @@
         </section>
         
         <!-- Contato Section -->
-        <section id="contato" class="py-16 bg-primary dark:bg-dark-light px-4 animate-fade-in">
+        <section id="contato" class="py-16 px-4 bg-light">
             <div class="container mx-auto">
-                <div class="max-w-4xl mx-auto bg-white dark:bg-dark rounded-lg shadow-lg overflow-hidden">
+                <div class="max-w-4xl mx-auto bg-dark rounded-xl shadow-xl overflow-hidden border border-gray-800">
                     <div class="md:flex">
-                        <div class="md:w-1/2 bg-secondary p-8 text-white">
+                        <div class="md:w-1/2 gradient-bg p-8 text-white">
                             <h2 class="text-2xl font-bold mb-6">Entre em Contato</h2>
                             <p class="mb-6">
                                 Tem alguma dúvida ou quer saber mais sobre nossos serviços? Preencha o formulário ou entre em contato diretamente por um dos canais abaixo.
@@ -478,44 +598,44 @@
                             <div class="mt-8">
                                 <h3 class="text-xl font-bold mb-4">Nos siga nas redes sociais</h3>
                                 <div class="flex space-x-4">
-                                    <a href="#" class="text-white hover:text-primary text-2xl">
+                                    <a href="#" class="text-white hover:text-dark text-2xl">
                                         <i class="fab fa-instagram"></i>
                                     </a>
-                                    <a href="https://wa.me/5511949648015" class="text-white hover:text-primary text-2xl">
+                                    <a href="https://wa.me/5511949648015" class="text-white hover:text-dark text-2xl">
                                         <i class="fab fa-whatsapp"></i>
                                     </a>
-                                    <a href="#" class="text-white hover:text-primary text-2xl">
+                                    <a href="#" class="text-white hover:text-dark text-2xl">
                                         <i class="fab fa-tiktok"></i>
                                     </a>
-                                    <a href="#" class="text-white hover:text-primary text-2xl">
+                                    <a href="#" class="text-white hover:text-dark text-2xl">
                                         <i class="fab fa-youtube"></i>
                                     </a>
-                                    <a href="#" class="text-white hover:text-primary text-2xl">
+                                    <a href="#" class="text-white hover:text-dark text-2xl">
                                         <i class="fab fa-linkedin"></i>
                                     </a>
                                 </div>
                             </div>
                         </div>
                         <div class="md:w-1/2 p-8">
-                            <h2 class="text-2xl font-bold text-dark dark:text-primary mb-6">Envie uma Mensagem</h2>
+                            <h2 class="text-2xl font-bold text-white mb-6">Envie uma Mensagem</h2>
                             <form id="contactForm">
                                 <div class="mb-4">
-                                    <label for="name" class="block text-dark dark:text-primary-light mb-2">Nome</label>
-                                    <input type="text" id="name" name="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary dark:bg-dark-light dark:border-gray-600 " placeholder="Digite seu nome">
+                                    <label for="name" class="block text-gray-400 mb-2">Nome</label>
+                                    <input type="text" id="name" name="name" class="w-full px-4 py-3 bg-dark border border-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-white" placeholder="Digite seu nome">
                                 </div>
                                 <div class="mb-4">
-                                    <label for="email" class="block text-dark dark:text-primary-light mb-2">E-mail</label>
-                                    <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary dark:bg-dark-light dark:border-gray-600" placeholder="Digite seu e-mail">
+                                    <label for="email" class="block text-gray-400 mb-2">E-mail</label>
+                                    <input type="email" id="email" name="email" class="w-full px-4 py-3 bg-dark border border-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-white" placeholder="Digite seu e-mail">
                                 </div>
                                 <div class="mb-4">
-                                    <label for="phone" class="block text-dark dark:text-primary-light mb-2">Telefone</label>
-                                    <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary dark:bg-dark-light dark:border-gray-600" placeholder="Digite seu telefone">
+                                    <label for="phone" class="block text-gray-400 mb-2">Telefone</label>
+                                    <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 bg-dark border border-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-white" placeholder="Digite seu telefone">
                                 </div>
                                 <div class="mb-4">
-                                    <label for="message" class="block text-dark dark:text-primary-light mb-2">Mensagem</label>
-                                    <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary dark:bg-dark-light dark:border-gray-600" placeholder="Escreva uma mensagem aqui"></textarea>
+                                    <label for="message" class="block text-gray-400 mb-2">Mensagem</label>
+                                    <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 bg-dark border border-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-white" placeholder="Escreva uma mensagem aqui"></textarea>
                                 </div>
-                                <button type="submit" class="w-full bg-secondary hover:bg-secondary-dark text-white font-bold py-3 px-6 rounded-lg transition">
+                                <button type="submit" class="w-full gradient-bg hover:opacity-90 text-white font-bold py-3 px-6 rounded-lg transition shadow-lg">
                                     Enviar Mensagem 
                                 </button>
                             </form>
@@ -526,73 +646,78 @@
         </section>
         
         <!-- FAQ Section -->
-        <section class="py-16 px-4 animate-fade-in">
+        <section class="py-16 px-4">
             <div class="container mx-auto max-w-4xl">
-                <h2 class="text-3xl font-bold text-center text-dark dark:text-primary mb-12">
-                    Perguntas <span class="text-secondary">Frequentes</span>
-                </h2>
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl font-bold text-white mb-4">
+                        Perguntas <span class="gradient-text">Frequentes</span>
+                    </h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto">
+                        Tire suas dúvidas sobre nossos serviços e como podemos ajudar seu negócio.
+                    </p>
+                </div>
                 
                 <div class="space-y-4">
                     <!-- FAQ Item 1 -->
-                    <div class="border border-primary dark:border-gray-600 rounded-lg overflow-hidden">
-                        <button class="faq-question w-full flex justify-between items-center p-4 bg-primary dark:bg-dark-light text-left">
-                            <span class="font-medium text-dark dark:text-primary">Quanto tempo leva para ver resultados?</span>
+                    <div class="border border-gray-800 rounded-xl overflow-hidden" data-aos="fade-up">
+                        <button class="faq-question w-full flex justify-between items-center p-4 bg-light text-left hover:bg-gray-900 transition">
+                            <span class="font-medium text-white">Quanto tempo leva para ver resultados?</span>
                             <i class="fas fa-chevron-down transition-transform duration-300"></i>
                         </button>
-                        <div class="faq-answer hidden p-4 bg-white dark:bg-dark">
-                            <p class="text-dark dark:text-primary-light">
+                        <div class="faq-answer hidden p-4 bg-dark">
+                            <p class="text-gray-400">
                                 Os primeiros resultados geralmente são perceptíveis em 2-4 semanas, dependendo do plano escolhido e do estado atual das suas redes sociais. Nosso plano Premium oferece resultados mais rápidos devido às estratégias avançadas de growth hacking.
                             </p>
                         </div>
                     </div>
                     
                     <!-- FAQ Item 2 -->
-                    <div class="border border-primary dark:border-gray-600 rounded-lg overflow-hidden">
-                        <button class="faq-question w-full flex justify-between items-center p-4 bg-primary dark:bg-dark-light text-left">
-                            <span class="font-medium text-dark dark:text-primary">Posso cancelar a qualquer momento?</span>
+                    <div class="border border-gray-800 rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="50">
+                        <button class="faq-question w-full flex justify-between items-center p-4 bg-light text-left hover:bg-gray-900 transition">
+                            <span class="font-medium text-white">Posso cancelar a qualquer momento?</span>
                             <i class="fas fa-chevron-down transition-transform duration-300"></i>
                         </button>
-                        <div class="faq-answer hidden p-4 bg-white dark:bg-dark">
-                            <p class="text-dark dark:text-primary-light">
+                        <div class="faq-answer hidden p-4 bg-dark">
+                            <p class="text-gray-400">
                                 Sim, nossos planos não possuem fidelidade. Você pode cancelar quando quiser através do seu painel de cliente ou entrando em contato com nosso suporte. O cancelamento é efetivado no final do período mensal já pago.
                             </p>
                         </div>
                     </div>
                     
                     <!-- FAQ Item 3 -->
-                    <div class="border border-primary dark:border-gray-600 rounded-lg overflow-hidden">
-                        <button class="faq-question w-full flex justify-between items-center p-4 bg-primary dark:bg-dark-light text-left">
-                            <span class="font-medium text-dark dark:text-primary">Vocês trabalham com quais redes sociais?</span>
+                    <div class="border border-gray-800 rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                        <button class="faq-question w-full flex justify-between items-center p-4 bg-light text-left hover:bg-gray-900 transition">
+                            <span class="font-medium text-white">Vocês trabalham com quais redes sociais?</span>
                             <i class="fas fa-chevron-down transition-transform duration-300"></i>
                         </button>
-                        <div class="faq-answer hidden p-4 bg-white dark:bg-dark">
-                            <p class="text-dark dark:text-primary-light">
+                        <div class="faq-answer hidden p-4 bg-dark">
+                            <p class="text-gray-400">
                                 Trabalhamos com todas as principais plataformas: Instagram, TikTok, YouTube, Facebook, Twitter e LinkedIn. Nossos especialistas irão recomendar as melhores plataformas para o seu negócio durante a consultoria inicial.
                             </p>
                         </div>
                     </div>
                     
                     <!-- FAQ Item 4 -->
-                    <div class="border border-primary dark:border-gray-600 rounded-lg overflow-hidden">
-                        <button class="faq-question w-full flex justify-between items-center p-4 bg-primary dark:bg-dark-light text-left">
-                            <span class="font-medium text-dark dark:text-primary">Como é feito o conteúdo criativo?</span>
+                    <div class="border border-gray-800 rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="150">
+                        <button class="faq-question w-full flex justify-between items-center p-4 bg-light text-left hover:bg-gray-900 transition">
+                            <span class="font-medium text-white">Como é feito o conteúdo criativo?</span>
                             <i class="fas fa-chevron-down transition-transform duration-300"></i>
                         </button>
-                        <div class="faq-answer hidden p-4 bg-white dark:bg-dark">
-                            <p class="text-dark dark:text-primary-light">
+                        <div class="faq-answer hidden p-4 bg-dark">
+                            <p class="text-gray-400">
                                 Nossa equipe de criação desenvolve conteúdo personalizado baseado na identidade visual da sua marca. Utilizamos técnicas de storytelling e design para criar posts que engajam. Você recebe um calendário de conteúdo para aprovação antes da publicação.
                             </p>
                         </div>
                     </div>
                     
                     <!-- FAQ Item 5 -->
-                    <div class="border border-primary dark:border-gray-600 rounded-lg overflow-hidden">
-                        <button class="faq-question w-full flex justify-between items-center p-4 bg-primary dark:bg-dark-light text-left">
-                            <span class="font-medium text-dark dark:text-primary">Há algum custo adicional além do plano mensal?</span>
+                    <div class="border border-gray-800 rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                        <button class="faq-question w-full flex justify-between items-center p-4 bg-light text-left hover:bg-gray-900 transition">
+                            <span class="font-medium text-white">Há algum custo adicional além do plano mensal?</span>
                             <i class="fas fa-chevron-down transition-transform duration-300"></i>
                         </button>
-                        <div class="faq-answer hidden p-4 bg-white dark:bg-dark">
-                            <p class="text-dark dark:text-primary-light">
+                        <div class="faq-answer hidden p-4 bg-dark">
+                            <p class="text-gray-400">
                                 O valor do plano já inclui todos os serviços descritos. Os únicos custos adicionais seriam orçamentos específicos para produção de vídeos profissionais ou investimento em anúncios (que são opcionais e discutidos previamente).
                             </p>
                         </div>
@@ -603,32 +728,32 @@
     </main>
     
     <!-- Footer -->
-    <footer class="bg-dark text-primary-light py-12 px-4">
+    <footer class="bg-dark border-t border-gray-800 py-12 px-4">
         <div class="container mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <!-- Coluna 1 -->
                 <div>
                     <div class="flex items-center mb-4">
-                        <img src="img/logo.jpg" alt="Click Reels Logo" class="h-8 mr-2" style="border-radius: 50%;">
-                        <span class="text-xl font-bold text-primary">Click Reels</span>
+                        <img src="img/logo.jpg" alt="Click Reels Logo" class="h-8 w-8 rounded-full mr-2 object-cover border-2 border-primary">
+                        <span class="text-xl font-bold text-white">Click <span class="gradient-text">Reels</span></span>
                     </div>
-                    <p class="mb-4">
+                    <p class="text-gray-400 mb-4">
                         Especialistas em marketing digital, engajamento em redes sociais e criação de conteúdo viral.
                     </p>
                     <div class="flex space-x-4">
-                        <a href="#" class="text-primary hover:text-secondary text-xl">
+                        <a href="#" class="text-gray-400 hover:text-primary text-xl">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://wa.me/5511949648015" class="text-primary hover:text-secondary text-xl">
+                        <a href="https://wa.me/5511949648015" class="text-gray-400 hover:text-primary text-xl">
                             <i class="fab fa-whatsapp"></i>
                         </a>
-                        <a href="#" class="text-primary hover:text-secondary text-xl">
+                        <a href="#" class="text-gray-400 hover:text-primary text-xl">
                             <i class="fab fa-tiktok"></i>
                         </a>
-                        <a href="#" class="text-primary hover:text-secondary text-xl">
+                        <a href="#" class="text-gray-400 hover:text-primary text-xl">
                             <i class="fab fa-youtube"></i>
                         </a>
-                        <a href="#" class="text-primary hover:text-secondary text-xl">
+                        <a href="#" class="text-gray-400 hover:text-primary text-xl">
                             <i class="fab fa-linkedin"></i>
                         </a>
                     </div>
@@ -636,63 +761,63 @@
                 
                 <!-- Coluna 2 -->
                 <div>
-                    <h3 class="text-lg font-bold text-primary mb-4">Links Rápidos</h3>
+                    <h3 class="text-lg font-bold text-white mb-4">Links Rápidos</h3>
                     <ul class="space-y-2">
-                        <li><a href="#inicio" class="hover:text-secondary transition">Início</a></li>
-                        <li><a href="#servicos" class="hover:text-secondary transition">Serviços</a></li>
-                        <li><a href="#planos" class="hover:text-secondary transition">Planos</a></li>
-                        <li><a href="#sobre" class="hover:text-secondary transition">Sobre Nós</a></li>
-                        <li><a href="#contato" class="hover:text-secondary transition">Contato</a></li>
-                        <li><a href="linktree.html" class="hover:text-secondary transition">Links</a></li>
+                        <li><a href="#inicio" class="text-gray-400 hover:text-primary transition">Início</a></li>
+                        <li><a href="#servicos" class="text-gray-400 hover:text-primary transition">Serviços</a></li>
+                        <li><a href="#planos" class="text-gray-400 hover:text-primary transition">Planos</a></li>
+                        <li><a href="#sobre" class="text-gray-400 hover:text-primary transition">Sobre Nós</a></li>
+                        <li><a href="#contato" class="text-gray-400 hover:text-primary transition">Contato</a></li>
+                        <li><a href="linktree.html" class="text-gray-400 hover:text-primary transition">Links</a></li>
                     </ul>
                 </div>
                 
                 <!-- Coluna 3 -->
                 <div>
-                    <h3 class="text-lg font-bold text-primary mb-4">Serviços</h3>
+                    <h3 class="text-lg font-bold text-white mb-4">Serviços</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-secondary transition">Marketing Digital</a></li>
-                        <li><a href="#" class="hover:text-secondary transition">Gestão de Redes Sociais</a></li>
-                        <li><a href="#" class="hover:text-secondary transition">Criação de Conteúdo</a></li>
-                        <li><a href="#" class="hover:text-secondary transition">Anúncios Online</a></li>
-                        <li><a href="#" class="hover:text-secondary transition">Consultoria</a></li>
-                        <li><a href="#" class="hover:text-secondary transition">Growth Hacking</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition">Marketing Digital</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition">Gestão de Redes Sociais</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition">Criação de Conteúdo</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition">Anúncios Online</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition">Consultoria</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition">Growth Hacking</a></li>
                     </ul>
                 </div>
                 
                 <!-- Coluna 4 -->
                 <div>
-                    <h3 class="text-lg font-bold text-primary mb-4">Newsletter</h3>
-                    <p class="mb-4">
+                    <h3 class="text-lg font-bold text-white mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">
                         Assine nossa newsletter para receber dicas e ofertas exclusivas.
                     </p>
                     <form class="flex">
-                        <input type="email" placeholder="Seu e-mail" class="px-4 py-2 rounded-l-lg focus:outline-none text-dark w-full">
-                        <button type="submit" class="bg-secondary hover:bg-secondary-dark text-white px-4 py-2 rounded-r-lg transition">
+                        <input type="email" placeholder="Seu e-mail" class="px-4 py-3 rounded-l-lg focus:outline-none bg-light text-white w-full border border-gray-800">
+                        <button type="submit" class="gradient-bg text-white px-4 py-3 rounded-r-lg transition hover:opacity-90">
                             <i class="fas fa-paper-plane"></i>
                         </button>
                     </form>
                     <div class="mt-6">
-                        <h4 class="font-bold text-primary mb-2">Formas de Pagamento</h4>
+                        <h4 class="font-bold text-white mb-2">Formas de Pagamento</h4>
                         <div class="flex flex-wrap gap-2">
-                            <i class="fab fa-cc-visa text-2xl"></i>
-                            <i class="fab fa-cc-mastercard text-2xl"></i>
-                            <i class="fab fa-cc-amex text-2xl"></i>
-                            <i class="fab fa-cc-paypal text-2xl"></i>
-                            <i class="fab fa-cc-pix text-2xl"></i>
+                            <i class="fab fa-cc-visa text-2xl text-gray-400"></i>
+                            <i class="fab fa-cc-mastercard text-2xl text-gray-400"></i>
+                            <i class="fab fa-cc-amex text-2xl text-gray-400"></i>
+                            <i class="fab fa-cc-paypal text-2xl text-gray-400"></i>
+                            <i class="fab fa-pix text-2xl text-gray-400"></i>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
                 <p>
                     &copy; 2025 Click Reels. Todos os direitos reservados.
                 </p>
                 <div class="mt-4 flex justify-center space-x-6">
-                    <a href="#" class="hover:text-secondary transition">Termos de Serviço</a>
-                    <a href="#" class="hover:text-secondary transition">Política de Privacidade</a>
-                    <a href="#" class="hover:text-secondary transition">Cookies</a>
+                    <a href="#" class="hover:text-primary transition">Termos de Serviço</a>
+                    <a href="#" class="hover:text-primary transition">Política de Privacidade</a>
+                    <a href="#" class="hover:text-primary transition">Cookies</a>
                 </div>
             </div>
         </div>
@@ -704,7 +829,13 @@
     <script>
         new window.VLibras.Widget('https://vlibras.gov.br/app');
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="js/charts.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+        });
+    </script>
 </body>
 </html>

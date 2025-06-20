@@ -1,42 +1,4 @@
-// Função para inicializar o tema
-function inicializarTema() {
-    const temaPadrao = 'light'; // Forçar tema light como padrão
-    document.documentElement.classList.remove('dark'); // Garante que a classe 'dark' não seja aplicada
-    
-    // Atualizar ícones do tema
-    atualizarIconesTema(temaPadrao);
-    
-    // Atualizar o localStorage com o tema atual
-    localStorage.setItem('tema', temaPadrao);
-}
-
-// Função para alternar o tema
-function alternarTema() {
-    const html = document.documentElement;
-    html.classList.toggle('dark');
-    
-    const temaAtual = html.classList.contains('dark') ? 'dark' : 'light';
-    localStorage.setItem('tema', temaAtual);
-    
-    // Atualizar ícones do tema
-    atualizarIconesTema(temaAtual);
-}
-
-// Função para atualizar ícones do tema
-function atualizarIconesTema(tema) {
-    const iconesLua = document.querySelectorAll('.fa-moon');
-    const iconesSol = document.querySelectorAll('.fa-sun');
-    
-    if (tema === 'dark') {
-        iconesLua.forEach(icone => icone.classList.add('hidden'));
-        iconesSol.forEach(icone => icone.classList.remove('hidden'));
-    } else {
-        iconesLua.forEach(icone => icone.classList.remove('hidden'));
-        iconesSol.forEach(icone => icone.classList.add('hidden'));
-    }
-}
-
-// Função para rolar suavemente para seções e destacar menu ativo
+// Função para rolar suavemente para seções
 function rolarParaSecao(event) {
     if (this.getAttribute('href').startsWith('#')) {
         event.preventDefault();
@@ -59,15 +21,16 @@ function rolarParaSecao(event) {
             const menuMobile = document.getElementById('mobileMenu');
             if (!menuMobile.classList.contains('hidden')) {
                 menuMobile.classList.add('hidden');
+                document.body.style.overflow = '';
             }
         }
     }
 }
 
-// Função para atualizar o menu ativo baseado na seção visível
+// Função para atualizar o menu ativo
 function atualizarMenuAtivo(targetId = null) {
     const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+    const navLinks = document.querySelectorAll('.nav-link');
     
     // Se um targetId foi fornecido, usar ele
     if (targetId) {
@@ -104,50 +67,23 @@ function toggleMenuMobile() {
     document.body.style.overflow = menu.classList.contains('hidden') ? '' : 'hidden';
 }
 
-// Função para mostrar/ocultar botão de scroll up
-function toggleScrollUpButton() {
-    const scrollUpButton = document.getElementById('scrollUp');
-    if (window.scrollY > 300) {
-        scrollUpButton.classList.remove('hidden');
-    } else {
-        scrollUpButton.classList.add('hidden');
-    }
-}
-
-// Função para rolar para o topo
-function rolarParaTopo() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-    
-    // Atualizar menu ativo
-    atualizarMenuAtivo('#inicio');
-}
-
-// Função para animar elementos ao rolar
-function animarAoRolar() {
-    const elementos = document.querySelectorAll('.animate-fade-in');
-    
-    elementos.forEach(elemento => {
-        const elementoTopo = elemento.getBoundingClientRect().top;
-        const alturaJanela = window.innerHeight;
-        
-        if (elementoTopo < alturaJanela - 100) {
-            elemento.classList.add('visible');
-        }
-    });
-}
-
 // Função para lidar com FAQ
 function lidarComFAQ() {
     const perguntas = document.querySelectorAll('.faq-question');
     
     perguntas.forEach(pergunta => {
         pergunta.addEventListener('click', function() {
-            this.classList.toggle('active');
-            const resposta = this.nextElementSibling;
-            resposta.classList.toggle('open');
+            // Fechar todas as outras respostas
+            document.querySelectorAll('.faq-answer').forEach(resposta => {
+                if (resposta !== this.nextElementSibling) {
+                    resposta.classList.add('hidden');
+                    resposta.previousElementSibling.querySelector('i').classList.remove('rotate-180');
+                }
+            });
+            
+            // Alternar a resposta atual
+            this.querySelector('i').classList.toggle('rotate-180');
+            this.nextElementSibling.classList.toggle('hidden');
         });
     });
 }
@@ -161,20 +97,25 @@ function enviarFormularioContato(event) {
     // Simular envio (em produção, usar fetch ou AJAX)
     console.log('Dados do formulário:', Object.fromEntries(dadosFormulario));
     
-    alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+    // Mostrar mensagem de sucesso
+    const mensagemSucesso = document.createElement('div');
+    mensagemSucesso.className = 'fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 animate-fade-in';
+    mensagemSucesso.textContent = 'Mensagem enviada com sucesso! Entraremos em contato em breve.';
+    document.body.appendChild(mensagemSucesso);
+    
+    // Remover mensagem após 5 segundos
+    setTimeout(() => {
+        mensagemSucesso.classList.add('opacity-0', 'transition-opacity', 'duration-300');
+        setTimeout(() => {
+            mensagemSucesso.remove();
+        }, 300);
+    }, 5000);
+    
     formulario.reset();
 }
 
 // Função principal para inicializar tudo
 function inicializar() {
-    // Inicializar tema
-    inicializarTema();
-    
-    // Adicionar event listeners para alternar tema
-    document.querySelectorAll('#themeToggle, #themeToggleMobile').forEach(botao => {
-        botao.addEventListener('click', alternarTema);
-    });
-    
     // Adicionar smooth scroll para links de navegação
     document.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener('click', rolarParaSecao);
@@ -191,18 +132,6 @@ function inicializar() {
     if (closeMobileMenu) {
         closeMobileMenu.addEventListener('click', toggleMenuMobile);
     }
-    
-    // Botão scroll up
-    const scrollUpButton = document.getElementById('scrollUp');
-    if (scrollUpButton) {
-        scrollUpButton.addEventListener('click', rolarParaTopo);
-        window.addEventListener('scroll', toggleScrollUpButton);
-        toggleScrollUpButton(); // Verificar estado inicial
-    }
-    
-    // Animar elementos ao rolar
-    window.addEventListener('scroll', animarAoRolar);
-    animarAoRolar(); // Executar uma vez ao carregar
     
     // Lidar com menu ativo
     window.addEventListener('scroll', atualizarMenuAtivo);
@@ -231,8 +160,6 @@ function inicializar() {
         formularioContato.addEventListener('submit', enviarFormularioContato);
     }
 }
-
-// Método alternativo
 
 // Esperar o DOM carregar
 document.addEventListener('DOMContentLoaded', inicializar);
