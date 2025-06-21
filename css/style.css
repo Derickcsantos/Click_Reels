@@ -110,3 +110,56 @@ body {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;
 }
+
+/* Menu Mobile */
+#mobileMenu {
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#mobileMenu:not(.hidden) {
+    display: flex;
+    flex-direction: column;
+}
+
+#mobileMenu .absolute {
+    transition: opacity 0.3s ease;
+}
+
+#mobileMenu.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#mobileMenu.hidden .absolute {
+    opacity: 0;
+}
+
+#mobileMenu:not(.hidden) {
+    opacity: 1;
+    visibility: visible;
+}
+
+#mobileMenu a {
+    transition: transform 0.3s ease, color 0.3s ease;
+    position: relative;
+}
+
+#mobileMenu a:hover {
+    transform: translateX(5px);
+    color: #FF6B00;
+}
+
+#mobileMenu a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #FF6B00;
+    transition: width 0.3s ease;
+}
+
+#mobileMenu a:hover::after {
+    width: 100%;
+}
