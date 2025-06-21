@@ -32,23 +32,24 @@ A Click Reels é uma agência digital que oferece serviços completos de marketi
 
 ## 🎨 Design System
 Cores Principais
-Cor	Hexadecimal
-Laranja Primário	#FF6B00
-Laranja Secundário	#FF9500
-Fundo Escuro	#121212
-Fundo Claro	#1E1E1E
-Texto	#F5F5F5
-Texto Secundário	#AAAAAA
-Tipografia
-Fonte Principal: Poppins
+- **Cor	Hexadecimal**
 
-Hierarquia:
+  - Laranja Primário	#FF6B00
+  - Laranja Secundário	#FF9500
+  - Fundo Escuro	#121212
+  - Fundo Claro	#1E1E1E
+  - Texto	#F5F5F5
+  - Texto Secundário	#AAAAAA
+- **Tipografia**
+  - Fonte Principal: Poppins
 
-Títulos: 600 (Semibold)
+- **Hierarquia:**
 
-Texto normal: 400 (Regular)
+  - Títulos: 600 (Semibold)
 
-Texto secundário: 300 (Light)
+  - Texto normal: 400 (Regular)
+
+  - Texto secundário: 300 (Light)
 
 ## 📱 Responsividade
 O projeto foi desenvolvido com abordagem mobile-first e é totalmente responsivo, adaptando-se a:
